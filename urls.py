@@ -1,27 +1,17 @@
-"""
-URL configuration for storefront project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path,include
-
-admin.site.site_header = "Islamabad Unravelled Admin"
-admin.site.site_title = "Islamabad Admin Portal"
-admin.site.index_title = "Welcome to Islamabad"
+from django.urls import path
+from playground import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('playground.urls'))
+   path("", views.index, name= 'home' ),
+   path("hotel", views.hotel, name= 'hotel' ),
+   path("tour", views.tour, name= 'tour' ),
+   path("car", views.car, name= 'car' ),
+   path("signup", views.handlesignup, name= 'handlesignup' ),
+   path("login", views.handlelogin, name= 'handlelogin' ),
+   path("logout", views.handlelogout, name= 'handlelogout' ),
+   path("car_booking", views.car_booking, name='carbooking'),
+   path("hotel_booking", views.hotel_booking, name='hotelbooking'),
+   path("tour_booking", views.tour_booking, name='tourbooking'),
+
 ]
